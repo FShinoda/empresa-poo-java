@@ -1,8 +1,10 @@
-public class Empregado {
+
+public class Empregado extends Pessoa {
     String matricula;
 
-    // Construtor
-    public Empregado(String matricula) {
+    // Método Construtor
+    public Empregado(String nome, String cpf, String matricula) {
+        super(nome, cpf);
         this.matricula = matricula;
     }
 }

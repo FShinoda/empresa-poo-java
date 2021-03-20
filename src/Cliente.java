@@ -1,8 +1,10 @@
-public class Cliente {
+
+public class Cliente extends Pessoa {
     double valorDaDivida;
 
-    // Construtor
-    public Cliente(double valorDivida) {
+    // Método Construtor
+    public Cliente(String nome, String cpf, double valorDivida) {
+        super(nome, cpf);
         valorDaDivida = valorDivida;
     }
 }
