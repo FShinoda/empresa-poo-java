@@ -7,8 +7,7 @@ import static java.lang.Integer.*;
 public class Principal {
     public static void main(String[] args) {
 
-        /* Empregado[] empregado = new Empregado[10];
-        Cliente[] cliente = new Cliente[10]; */
+        
         ArrayList<Pessoa> lista = new ArrayList<>();
 
 
