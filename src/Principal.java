@@ -9,8 +9,8 @@ public class Principal {
 
         
         ArrayList<Pessoa> lista = new ArrayList<>();
-
-
+        
+        
 
         int opcao;
         String tipo;
@@ -68,10 +68,14 @@ public class Principal {
 
                 break;
                 case 4: // 4. Listar Empregados
+                listarEmpregados(lista);
                 break;
                 case 5: // 5. Listar Cliente
+                listarClientes(lista);
                 break;
                 case 6: // 6. Remover
+                String cpfRemocao = showInputDialog("Insira o CPF da pessoa a ser removida do sistema:");
+                remover(lista, cpfRemocao);
                 break;
                 case 7: // É necessário colocar o caso 7 para não cair em default
                 //o vazio ocupando espaço aqui
@@ -90,7 +94,7 @@ public class Principal {
         tela += "2. Cadastrar Cliente\n";
         tela += "3. Pesquisar\n";
         tela += "4. Listar Empregados\n";
-        tela += "5. Listar Empregados\n";
+        tela += "5. Listar Clientes\n";
         tela += "6. Remover\n";
         tela += "7. Finalizar";
 
@@ -119,5 +123,51 @@ public class Principal {
         }
 
         
+    }
+
+    public static void listarEmpregados(ArrayList<Pessoa> pessoas) {
+        String lista = "";
+        String classe = "";
+
+        for(Pessoa jk : pessoas) {
+            classe = jk.getClass().getName();
+            
+            if(classe.equalsIgnoreCase("vendedor") || classe.equalsIgnoreCase("gerente")){
+                lista += jk + "\n";
+            }
+        }
+
+        showMessageDialog(null, lista);
+    }
+
+    public static void listarClientes(ArrayList<Pessoa> pessoas) {
+        String lista = "";
+        String classe = "";
+
+        for(Pessoa jk : pessoas) {
+            classe = jk.getClass().getName();
+
+            if(classe.equalsIgnoreCase("cliente")) {
+                lista += jk + "\n";
+            }
+        }
+
+        showMessageDialog(null, lista);
+    }
+
+    public static void remover(ArrayList<Pessoa> pessoas, String cpf) {
+        int index = 0;
+
+        for(Pessoa jk : pessoas) {
+            if(jk.cpf.equals(cpf)) {
+                index = pessoas.indexOf(jk);
+
+                pessoas.remove(index);
+
+                break;
+            }
+        }
+        
+
     }
 }
